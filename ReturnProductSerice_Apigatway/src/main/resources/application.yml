@@ -1,0 +1,15 @@
+server:
+  port: 8999
+eureka:
+  instance:
+    hostname: localhost
+spring:
+  application:
+    name: Gateway_API_Service
+  cloud:
+    gateway:
+      routes:
+        - id: DamagedProducts-Service
+          uri: 'lb://DamagedProducts-Service'
+          predicates:
+            - Path=/api/damaged-products/**
